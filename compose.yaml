@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  sqs-mock:
+    image: softwaremill/elasticmq
+    container_name: sqs_mock
+    ports:
+      - "9324:9324"
+      - "9325:9325" # 0.0.0.0:9325 で管理画面にアクセス可能
+    volumes:
+      - ./elasticmq/custom.conf:/opt/elasticmq.conf:ro
